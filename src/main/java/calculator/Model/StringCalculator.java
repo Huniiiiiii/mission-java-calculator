@@ -8,13 +8,12 @@ public class StringCalculator {
         String customDelimiter = null;
         String numbers = input;
 
-        // Case: custom delimiter using literal "\n" as marker
         if (input.startsWith("//")) {
-            int newlineIndex = input.indexOf("\\n");  // ← 핵심: 문자열 "\n" 인식
+            int newlineIndex = input.indexOf("\\n");
             validateDelimiterFormat(newlineIndex);
             customDelimiter = input.substring(2, newlineIndex);
             validateDelimiterContent(customDelimiter);
-            numbers = input.substring(newlineIndex + 2);  // 2글자 ("\n") 이후부터 추출
+            numbers = input.substring(newlineIndex + 2);
         }
 
         numbers = replaceDelimitersWithSpace(numbers, customDelimiter);
